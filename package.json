@@ -1,0 +1,30 @@
+{
+  "name": "woven",
+  "version": "1.0.0",
+  "private": true,
+  "description": "woven",
+  "author": "Gilbert Lucas",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "OUTPUT_DIR=build gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gatsby": "^4.14.0",
+    "gatsby-plugin-output": "^0.1.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.16",
+    "typescript": "^4.6.4"
+  }
+}

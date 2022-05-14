@@ -4,14 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [{
-    resolve: `gatsby-plugin-output`,
-    options: {
-      // default values
-      publicPath: 'public',
-      rmPublicFolder: false
-    }
-  }],
+  plugins: [],
 }
 
 export default config

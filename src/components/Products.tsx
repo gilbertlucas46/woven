@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Product } from './Product';
@@ -25,19 +25,45 @@ type TypeProduct = {
     submitterAvatarUrl: string;
     productImageUrl: string;
 }
-
 export interface IProduct {
     product: TypeProduct;
-    handleVote: any;
+    onVote: any;
 }
 
 export const Products = () => {
-    const { products, generateVoteCount } = isBrowser() && window.Seed;
+    
+    const [data, setData] = useState<any[]>([])
+    const [loading, setLoading] = useState(true);
+    const { products} = isBrowser() && window.Seed;
+
+    useEffect(() => {
+        setLoading(true);
+        setData(products);
+        setLoading(false);
+    },[]);
+
+    if(loading) return <div>Loading...</div>;
+
+    const handleProductUpVote = (productId: number) => {
+        const nextProducts = data.map((product) => {
+            if (product.id === productId) {
+                return Object.assign({}, product, {
+                votes: product.votes + 1,
+                });
+            } else {
+                return product;
+            }
+        });
+
+        setData(nextProducts);
+    }
+
+    const productItems = data.sort((a, b) =>  b.votes - a.votes);
 
     return (
         <ProductsWrapper>
-            <h1 onClick={generateVoteCount}>Popular Products</h1>
-            {products?.map((product: TypeProduct) => <Product product={product} key={product.id} handleVote={generateVoteCount}/>)}
+            <h1>Popular Products</h1>
+            {productItems?.map((product: TypeProduct) => <Product product={product} key={product.id} onVote={handleProductUpVote} />)}
         </ProductsWrapper>
     )
 }

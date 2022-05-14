@@ -4,11 +4,18 @@ import styled from 'styled-components';
 import { graphql, useStaticQuery } from "gatsby";
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 
-
 const ProductCard = styled.div`
     display: grid;
     gap: 20px;
     margin-bottom: 30px;
+    box-shadow: 0 0 20px var(--gray-200);
+    border-radius: 4px;
+    transition: all 0.4s;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 20px var(--gray-300);
+    }
     @media (min-width: 767px) {
         grid-template-columns: 250px 1fr;
     }
@@ -41,6 +48,10 @@ const ProductImage = styled.div`
     align-items: center;
     img {
         width: 100%;
+        border-radius: 4px;
+        @media (min-width: 767px) {
+            border-radius: 4px 0 0 4px;
+        }
     }
 `
 
@@ -60,6 +71,7 @@ const ProductCaption = styled.div`
         color: var(--gray-600);
         font-size: 21px;
         line-height: 1.2;
+        font-weight: 300;
     }
 `
 const ProductAutor = styled.div`
@@ -76,7 +88,7 @@ const ProductAutor = styled.div`
     }
 `
 
-export const Product = ({product, handleVote }: IProduct) => {
+export const Product = ({product, onVote }: IProduct) => {
     const { id,  title, description, url, votes, submitterAvatarUrl, productImageUrl } = product;
     const productImgPath = productImageUrl.split('/');
     const AvatarImgPath = submitterAvatarUrl.split('/');
@@ -108,6 +120,10 @@ export const Product = ({product, handleVote }: IProduct) => {
         }
     });
 
+    const handleUpVote = () => (
+        onVote(product.id)
+    );
+
     return (
         <ProductCard key={id}>
             <ProductImage>
@@ -115,7 +131,7 @@ export const Product = ({product, handleVote }: IProduct) => {
             </ProductImage>
             <ProductCaption>
                 <div>
-                    <button onClick={handleVote}><BsFillArrowUpCircleFill/> {votes}</button>
+                    <button onClick={handleUpVote}><BsFillArrowUpCircleFill/> {votes}</button>
                     <h4><a href={url}>{title}</a> </h4>
                     <p> {description} </p>
                     <ProductAutor>

@@ -25,12 +25,11 @@ export interface IProduct {
 }
 
 export const Products = () => {
-    const { products, generateVoteCount } = window.Seed;
-
+    const { products, generateVoteCount } = isBrowser() && window.Seed;
     return (
         <ProductsWrapper>
             {
-                products.map((product: TypeProduct) => {
+                products?.map((product: TypeProduct) => {
                     return (
                         <Product product={product} handleVote={generateVoteCount}/>
                     )

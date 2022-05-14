@@ -3,6 +3,7 @@ import { isBrowser } from '../components/utils/isBrowser'
 if(isBrowser()) {
     window.Seed = (function () {
         function generateVoteCount() {
+          console.log('You clicked submit.', Math.floor((Math.random() * 50) + 15));
           return Math.floor((Math.random() * 50) + 15);
         }
 

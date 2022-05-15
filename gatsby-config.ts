@@ -15,14 +15,6 @@ const config: GatsbyConfig = {
       }
     },
     {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /src/
-        }
-      }
-    },
-    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [

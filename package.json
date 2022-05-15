@@ -10,7 +10,8 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "OUTPUT_DIR=build gatsby build && gatsby serve",
+    "build": "OUTPUT_DIR=build gatsby build",
+    "servebuild": "OUTPUT_DIR=build gatsby build && gatsby serve",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"

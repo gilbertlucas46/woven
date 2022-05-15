@@ -1,26 +1,38 @@
+
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+  
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+1. **Build gatsby site**
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
+```shell
+npm run build
+```
 
-2.  **Start developing.**
+2. **Start gatsby site locally**
 
-    Navigate into your new site’s directory and start it up.
+  
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-3.  **Open the code and start customizing!**
+  
 
-    Your site is now running at http://localhost:8000!
+```shell
+npm run serve
+```
+Your site is now running at http://localhost:9000!
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+  
 
+3. **Start developing.**
+
+  
+
+Navigate into site’s directory and start it up.
+
+  
+
+```shell
+cd woven/
+npm run develop
+```

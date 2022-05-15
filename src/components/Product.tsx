@@ -48,7 +48,7 @@ const ProductImage = styled.div`
     align-items: center;
     img {
         width: 100%;
-        border-radius: 4px;
+        border-radius: 4px 4px 0 0;
         @media (min-width: 767px) {
             border-radius: 4px 0 0 4px;
         }
@@ -58,6 +58,10 @@ const ProductImage = styled.div`
 const ProductCaption = styled.div`
     display: flex;
     align-items: center;
+    padding: 30px;
+    @media (min-width: 767px) {
+        padding: 0;
+    }
     h4 {
         margin-top: 0;
         font-size: 24px;
